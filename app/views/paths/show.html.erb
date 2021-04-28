@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @path.location %>
+</p>
+
+<p>
+  <strong>Organize:</strong>
+  <%= @path.organize %>
+</p>
+
+<p>
+  <strong>Backup:</strong>
+  <%= @path.backup %>
+</p>
+
+<p>
+  <strong>Use as backup:</strong>
+  <%= @path.use_as_backup %>
+</p>
+
+<%= link_to 'Edit', edit_path_path(@path) %> |
+<%= link_to 'Back', paths_path %>

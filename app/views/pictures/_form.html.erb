@@ -1,0 +1,92 @@
+<%= form_with(model: picture) do |form| %>
+  <% if picture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+
+      <ul>
+        <% picture.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :filename %>
+    <%= form.text_field :filename %>
+  </div>
+
+  <div class="field">
+    <%= form.label :full_path %>
+    <%= form.text_field :full_path %>
+  </div>
+
+  <div class="field">
+    <%= form.label :path_id %>
+    <%= form.text_field :path_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :will_organize %>
+    <%= form.check_box :will_organize %>
+  </div>
+
+  <div class="field">
+    <%= form.label :will_research %>
+    <%= form.check_box :will_research %>
+  </div>
+
+  <div class="field">
+    <%= form.label :extension %>
+    <%= form.text_field :extension %>
+  </div>
+
+  <div class="field">
+    <%= form.label :raw %>
+    <%= form.check_box :raw %>
+  </div>
+
+  <div class="field">
+    <%= form.label :filesystem_date %>
+    <%= form.datetime_select :filesystem_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :picture_date %>
+    <%= form.datetime_select :picture_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.text_field :size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thumb200 %>
+    <%= form.text_field :thumb200 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thumb400 %>
+    <%= form.text_field :thumb400 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thumb800 %>
+    <%= form.text_field :thumb800 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exif %>
+    <%= form.text_field :exif %>
+  </div>
+
+  <div class="field">
+    <%= form.label :meta %>
+    <%= form.text_field :meta %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

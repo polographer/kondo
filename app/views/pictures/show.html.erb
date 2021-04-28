@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @picture.filename %>
+</p>
+
+<p>
+  <strong>Full path:</strong>
+  <%= @picture.full_path %>
+</p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @picture.path_id %>
+</p>
+
+<p>
+  <strong>Will organize:</strong>
+  <%= @picture.will_organize %>
+</p>
+
+<p>
+  <strong>Will research:</strong>
+  <%= @picture.will_research %>
+</p>
+
+<p>
+  <strong>Extension:</strong>
+  <%= @picture.extension %>
+</p>
+
+<p>
+  <strong>Raw:</strong>
+  <%= @picture.raw %>
+</p>
+
+<p>
+  <strong>Filesystem date:</strong>
+  <%= @picture.filesystem_date %>
+</p>
+
+<p>
+  <strong>Picture date:</strong>
+  <%= @picture.picture_date %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @picture.size %>
+</p>
+
+<p>
+  <strong>Thumb200:</strong>
+  <%= @picture.thumb200 %>
+</p>
+
+<p>
+  <strong>Thumb400:</strong>
+  <%= @picture.thumb400 %>
+</p>
+
+<p>
+  <strong>Thumb800:</strong>
+  <%= @picture.thumb800 %>
+</p>
+
+<p>
+  <strong>Exif:</strong>
+  <%= @picture.exif %>
+</p>
+
+<p>
+  <strong>Meta:</strong>
+  <%= @picture.meta %>
+</p>
+
+<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Back', pictures_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  organize: false
+  backup: false
+  use_as_backup: false
+
+two:
+  location: MyString
+  organize: false
+  backup: false
+  use_as_backup: false

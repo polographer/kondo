@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pictures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th>Full path</th>
+      <th>Path</th>
+      <th>Will organize</th>
+      <th>Will research</th>
+      <th>Extension</th>
+      <th>Raw</th>
+      <th>Filesystem date</th>
+      <th>Picture date</th>
+      <th>Size</th>
+      <th>Thumb200</th>
+      <th>Thumb400</th>
+      <th>Thumb800</th>
+      <th>Exif</th>
+      <th>Meta</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pictures.each do |picture| %>
+      <tr>
+        <td><%= picture.filename %></td>
+        <td><%= picture.full_path %></td>
+        <td><%= picture.path_id %></td>
+        <td><%= picture.will_organize %></td>
+        <td><%= picture.will_research %></td>
+        <td><%= picture.extension %></td>
+        <td><%= picture.raw %></td>
+        <td><%= picture.filesystem_date %></td>
+        <td><%= picture.picture_date %></td>
+        <td><%= picture.size %></td>
+        <td><%= picture.thumb200 %></td>
+        <td><%= picture.thumb400 %></td>
+        <td><%= picture.thumb800 %></td>
+        <td><%= picture.exif %></td>
+        <td><%= picture.meta %></td>
+        <td><%= link_to 'Show', picture %></td>
+        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Picture', new_picture_path %>
