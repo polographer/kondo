@@ -9,7 +9,7 @@
       <th>Organize</th>
       <th>Backup</th>
       <th>Use as backup</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -20,6 +20,7 @@
         <td><%= path.organize %></td>
         <td><%= path.backup %></td>
         <td><%= path.use_as_backup %></td>
+        <td><%= link_to 'Scan', path_scan_path(path) %></td>
         <td><%= link_to 'Show', path %></td>
         <td><%= link_to 'Edit', edit_path_path(path) %></td>
         <td><%= link_to 'Destroy', path, method: :delete, data: { confirm: 'Are you sure?' } %></td>

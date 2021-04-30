@@ -1,6 +1,13 @@
 class PathsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_path, only: %i[ show edit update destroy ]
+  before_action :set_path, only: %i[ show edit update destroy scan ]
+
+  #custom
+  def scan
+    #self.scan
+    @path.scan
+    redirect_to paths_url
+  end
 
   # GET /paths or /paths.json
   def index
