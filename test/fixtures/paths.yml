@@ -7,7 +7,7 @@ one:
   use_as_backup: false
 
 two:
-  location: MyString
+  location: MyString2
   organize: false
   backup: false
   use_as_backup: false

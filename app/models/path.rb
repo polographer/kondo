@@ -1,5 +1,5 @@
 class Path < ApplicationRecord
-    has_many :pictures
+    has_many :pictures, :dependent => :destroy
     def scan
         extensions = ["jpg", "jpeg","png","raw","dng","orf"]
         extensions.each do | ext |

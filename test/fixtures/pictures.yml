@@ -11,9 +11,6 @@ one:
   filesystem_date: 2021-04-27 11:49:37
   picture_date: 2021-04-27 11:49:37
   size: MyString
-  thumb200: MyString
-  thumb400: MyString
-  thumb800: MyString
   exif: 
   meta: 
 
@@ -28,8 +25,5 @@ two:
   filesystem_date: 2021-04-27 11:49:37
   picture_date: 2021-04-27 11:49:37
   size: MyString
-  thumb200: MyString
-  thumb400: MyString
-  thumb800: MyString
   exif: 
   meta: 

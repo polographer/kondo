@@ -1,7 +1,10 @@
 require "test_helper"
 
 class PicturesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:one)
     @picture = pictures(:one)
   end
 
@@ -17,7 +20,7 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create picture" do
     assert_difference('Picture.count') do
-      post pictures_url, params: { picture: { exif: @picture.exif, extension: @picture.extension, filename: @picture.filename, filesystem_date: @picture.filesystem_date, full_path: @picture.full_path, meta: @picture.meta, path_id: @picture.path_id, picture_date: @picture.picture_date, raw: @picture.raw, size: @picture.size, thumb200: @picture.thumb200, thumb400: @picture.thumb400, thumb800: @picture.thumb800, will_organize: @picture.will_organize, will_research: @picture.will_research } }
+      post pictures_url, params: { picture: { exif: @picture.exif, extension: @picture.extension, filename: @picture.filename, filesystem_date: @picture.filesystem_date, full_path: @picture.full_path, meta: @picture.meta, path_id: @picture.path_id, picture_date: @picture.picture_date, raw: @picture.raw, size: @picture.size,  will_organize: @picture.will_organize, will_research: @picture.will_research } }
     end
 
     assert_redirected_to picture_url(Picture.last)
@@ -34,7 +37,7 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update picture" do
-    patch picture_url(@picture), params: { picture: { exif: @picture.exif, extension: @picture.extension, filename: @picture.filename, filesystem_date: @picture.filesystem_date, full_path: @picture.full_path, meta: @picture.meta, path_id: @picture.path_id, picture_date: @picture.picture_date, raw: @picture.raw, size: @picture.size, thumb200: @picture.thumb200, thumb400: @picture.thumb400, thumb800: @picture.thumb800, will_organize: @picture.will_organize, will_research: @picture.will_research } }
+    patch picture_url(@picture), params: { picture: { exif: @picture.exif, extension: @picture.extension, filename: @picture.filename, filesystem_date: @picture.filesystem_date, full_path: @picture.full_path, meta: @picture.meta, path_id: @picture.path_id, picture_date: @picture.picture_date, raw: @picture.raw, size: @picture.size,  will_organize: @picture.will_organize, will_research: @picture.will_research } }
     assert_redirected_to picture_url(@picture)
   end
 
