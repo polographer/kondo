@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= @picture.web.attached? ? (image_tag @picture.web) : "" %>
+</p>
+
+<p>
   <strong>Filename:</strong>
   <%= @picture.filename %>
 </p>

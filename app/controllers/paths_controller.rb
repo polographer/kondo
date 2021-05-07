@@ -5,8 +5,10 @@ class PathsController < ApplicationController
   #custom
   def scan
     #self.scan
-    @path.scan
-    redirect_to paths_url
+    #@path.scan
+    
+    PathFinderJob.perform_later
+    redirect_to paths_url, notice: "Scan was scheduled for later." 
   end
 
   # GET /paths or /paths.json

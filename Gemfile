@@ -7,6 +7,7 @@ ruby '3.0.1'
 gem 'devise'
 gem 'image_processing'
 gem 'rexml'
+gem 'pg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
