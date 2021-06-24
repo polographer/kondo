@@ -2,6 +2,13 @@ class PicturesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_picture, only: %i[ show edit update destroy ]
 
+  #custom
+  def missing_thumbnails
+    SpiritJob.perform_later
+    redirect_to pictures_url, notice: "Thumb generator was scheduled for later." 
+
+  end
+
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all

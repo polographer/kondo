@@ -75,10 +75,12 @@
 
     <% if user_signed_in? %> 
 
-      <%= link_to 'home', welcome_home_path %>
+      <%= link_to 'home', welcome_dashboard_path %>
       <%= link_to 'paths', paths_url %>
       <%= link_to 'pictures', pictures_url %>
-
+      <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'login', new_user_session_path %>
     <% end %>
 
 
@@ -279,9 +281,10 @@
 <!-- end example album -->
   <div class="album py-5 bg-light">
     <div class="container">
-
+<!--
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+      -->
       <%= yield %>
     </div>
   </div>

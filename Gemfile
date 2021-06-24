@@ -9,6 +9,10 @@ gem 'image_processing'
 gem 'rexml'
 gem 'pg'
 
+#workaround for arm64
+gem "ffi", "~> 1.15.1"
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 # Use sqlite3 as the database for Active Record

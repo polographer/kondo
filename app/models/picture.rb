@@ -1,5 +1,5 @@
 class Picture < ApplicationRecord
-  require "image_processing/vips"
+#  require "image_processing/vips"
   require "image_processing/mini_magick"
 
 
@@ -12,7 +12,7 @@ class Picture < ApplicationRecord
   #   attachable.variant :thumb_400, resize: "400x400"
   #   attachable.variant :thumb_800, resize: "800x800"
   # end
-
+                   
   def thumbnalize
     if self.full_path.present?
       self.web.attached? || self.web.purge

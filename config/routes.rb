@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'welcome/status'
   get 'welcome/configuration'
   get 'welcome/home'
+
+  get '/pictures/missing_thumbnails' => 'pictures#thumbnails' , :as =>"missing_thumbs"
+
   resources :pictures
   
   #get '/patients/:id', to: 'patients#show'
