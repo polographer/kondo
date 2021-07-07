@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  kondo:
+    build:
+      context: ./
+    restart: always
+    command: exec rails s -b 0.0.0.0
+    environment: 
+      DATABASE_URL: postgres://postgres:postgres@db/kondo
+      REDIS_URL: redis://redis:6793
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 13000:3000
+
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - db-volume:/var/lib/postgresql/data/pgdata
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+
+  redis:
+    image: redis:5
+    restart: always
+    volumes:
+      - redis-volume:/data
+
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.0
+    restart: always
+    ports:
+      - 9025:1025
+      - 10025:8025
+
+volumes:
+  db-volume:
+  redis-volume:
