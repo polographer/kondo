@@ -8,6 +8,7 @@ gem 'devise'
 gem 'image_processing'
 gem 'rexml'
 gem 'pg'
+#gem 'exif'
 
 #workaround for arm64
 gem "ffi", "~> 1.15.1"

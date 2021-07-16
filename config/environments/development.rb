@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  #vscode hacks
+  config.hosts << "elponejerio.asuscomm.com"
 end

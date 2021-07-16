@@ -12,6 +12,10 @@ class Picture < ApplicationRecord
   #   attachable.variant :thumb_400, resize: "400x400"
   #   attachable.variant :thumb_800, resize: "800x800"
   # end
+
+  def is_raw_image?
+    ["DNG","CR2","ORF"].include? self.extension.upcase
+  end
                    
   def thumbnalize
     if self.full_path.present?
@@ -24,10 +28,12 @@ class Picture < ApplicationRecord
         .convert("jpg")
         .saver(quality: 95, strip: true)
       
-      #self.web.attach( pipeline.call )
-
       self.web.attach( io: File.open(pipeline.call),filename: "picture_#{self.id}_web.jpg" )
     end
-    
+  end
+
+  def load_exif
+    pic.exif = JSON.parse(`exiftool -json #{pic.full_path}`)[0]
+    pic.save!
   end
 end

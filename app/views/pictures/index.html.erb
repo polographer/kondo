@@ -28,11 +28,11 @@
         <td><%= picture.will_organize %></td>
         <td><%= picture.will_research %></td>
         <td><%= picture.extension %></td>
-        <td><%= picture.raw %></td>
+        <td><%= picture.is_raw_image? %></td>
         <td><%= picture.filesystem_date %></td>
         <td><%= picture.picture_date %></td>
         <td><%= picture.size %></td>
-        <td><%= picture.exif %></td>
+        <td><%= not picture.exif.blank? %></td>
         <td><%= picture.meta %></td>
         <td><%= link_to 'Show', picture %></td>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>

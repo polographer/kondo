@@ -1,18 +1,11 @@
 class SpiritJob < ApplicationJob
   queue_as :default
-
+  # this generates thumbnails that are not generated for each picture
+  
   def perform(*args)
-    # Do something later
-
-    # Path.includes(:pictures).each do |path|
-    #   path.pictures.each do |pic|
-    #     if not pic.web.attached?
-    #       ExposerJob.perform_later(pic)
-    #     end
-    #   end
-    # end
+    
     Picture.all.each do |pic|
-      if not pic.web.attached?
+      if not pic.web.attached? or pic.exif.blank?
         ExposerJob.perform_later(pic)
       end
     end
