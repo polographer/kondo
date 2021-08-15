@@ -12,6 +12,19 @@ services:
       DATABASE_URL: postgres://postgres:${PSQL_PASSWORD}@db/kondo
       REDIS_URL: redis://redis:6793
 
+  sidekiq:
+    image: kondo:${APP_VERSION}
+    command: exec sidekiq
+    depends_on:
+      - db
+      - redis
+    environment: 
+      RAILS_ENV: production
+      RAILS_LOG_TO_STDOUT: enabled
+      SECRET_KEY_BASE: ${RAILS_SECRET}
+      DATABASE_URL: postgres://postgres:${PSQL_PASSWORD}@db/kondo
+      REDIS_URL: redis://redis:6793
+
   db:
     image: postgres:13.4-alpine
     volumes:
