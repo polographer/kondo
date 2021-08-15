@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  kondo:
+    build:
+      context: ./
+    restart: always
+    command: exec rails s -b 0.0.0.0
+    environment: 
+      RAILS_ENV: production
+      RAILS_LOG_TO_STDOUT: enabled
+      RAILS_SERVE_STATIC_FILES: disabled
+      SECRET_KEY_BASE: $RAILS_SECRET
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 13000:3000
+
+  db:
+    image: bitnami/postgresql:13.4.0
+    volumes:
+      - $PROD_DIR/data/psql:/bitnami/postgresql
+    restart: always
+    environment:
+      POSTGRESQL_PASSWORD: $PSQL_PASSWORD
+
+  redis:
+    image: bitnami/redis:6.2.5
+    restart: always
+    environment: 
+      REDIS_DISABLE_COMMANDS: FLUSHDB,FLUSHALL,CONFIG
+      REDIS_PASSWORD: $REDIS_PASSWORD
+    volumes:
+      - $PROD_DIR/data/redis:/bitnami/redis/data
+
+  nginx:
+    image: 1.21.1-alpine
+    volumes: 
+      - ./ops/nginx/prod.conf:/etc/nginx/sites-available/default
+
+volumes:
+  db-volume:
+  redis-volume:
