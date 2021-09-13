@@ -19,3 +19,14 @@ This was the other default for raw:
 https://stackoverflow.com/questions/52322701/imagemagick-raw-file-identify-convert-no-such-file-or-directory-tmp-file
 
 
+# on nvidia;
+
+first try;
+https://github.com/ageitgey/face_recognition
+
+https://github.com/mdegans/nano_build_opencv
+https://medium.com/@ageitgey/build-a-hardware-based-face-recognition-system-for-150-with-the-nvidia-jetson-nano-and-python-a25cb8c891fd
+
+dlib issues, basically downlad latest 19.22
+https://forums.developer.nvidia.com/t/issues-with-dlib-library/72600/16
+https://forums.developer.nvidia.com/t/how-to-build-dlib-in-jetson-nano-in-deepstream-l4t-container/144536/8

@@ -5,6 +5,9 @@ class Picture < ApplicationRecord
 
   belongs_to :path
   has_one_attached :web
+  has_many :albums, through: :pages
+  has_many :people, through: :appareances
+
 
   # has_one_attached :web do |attachable|
   #   attachable.variant :thumb, resize: "100x100"

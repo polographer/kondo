@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_042042) do
+ActiveRecord::Schema.define(version: 2021_09_08_043212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,11 +43,44 @@ ActiveRecord::Schema.define(version: 2021_07_15_042042) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "albums", force: :cascade do |t|
+    t.string "name"
+    t.boolean "dynamic"
+    t.string "rules"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "appareances", force: :cascade do |t|
+    t.bigint "picture_id", null: false
+    t.bigint "people_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["people_id"], name: "index_appareances_on_people_id"
+    t.index ["picture_id"], name: "index_appareances_on_picture_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.bigint "picture_id", null: false
+    t.bigint "album_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["album_id"], name: "index_pages_on_album_id"
+    t.index ["picture_id"], name: "index_pages_on_picture_id"
+  end
+
   create_table "paths", force: :cascade do |t|
     t.string "location"
     t.boolean "organize"
     t.boolean "backup"
     t.boolean "use_as_backup"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.string "face_path"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -88,5 +121,9 @@ ActiveRecord::Schema.define(version: 2021_07_15_042042) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "appareances", "people", column: "people_id"
+  add_foreign_key "appareances", "pictures"
+  add_foreign_key "pages", "albums"
+  add_foreign_key "pages", "pictures"
   add_foreign_key "pictures", "paths"
 end

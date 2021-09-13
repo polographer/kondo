@@ -7,7 +7,6 @@ one:
   will_organize: false
   will_research: false
   extension: MyString
-  raw: false
   filesystem_date: 2021-04-27 11:49:37
   picture_date: 2021-04-27 11:49:37
   size: MyString
@@ -21,7 +20,6 @@ two:
   will_organize: false
   will_research: false
   extension: MyString
-  raw: false
   filesystem_date: 2021-04-27 11:49:37
   picture_date: 2021-04-27 11:49:37
   size: MyString

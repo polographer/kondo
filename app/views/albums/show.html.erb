@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @album.name %>
+</p>
+
+<p>
+  <strong>Dynamic:</strong>
+  <%= @album.dynamic %>
+</p>
+
+<p>
+  <strong>Rules:</strong>
+  <%= @album.rules %>
+</p>
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>

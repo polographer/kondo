@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :people
+  resources :albums
   devise_for :users
   get 'welcome/hello'
   get 'welcome/dashboard'

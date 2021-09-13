@@ -78,6 +78,8 @@
       <%= link_to 'home', welcome_dashboard_path %>
       <%= link_to 'paths', paths_url %>
       <%= link_to 'pictures', pictures_url %>
+      <%= link_to 'albums', albums_url %>
+      <%= link_to 'people', people_url %>
       <%= link_to 'logout', destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to 'login', new_user_session_path %>
@@ -296,7 +298,7 @@
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p>
-    <p class="mb-1">Made with Rails, &copy; Bootstrap, WSL2 and love</p>
+    <p class="mb-1">Made with Rails, &copy; Bootstrap, a lot of linux variants, vscode server, and a little help from my friends</p>
   </div>
 </footer>
 
