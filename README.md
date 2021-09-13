@@ -1,5 +1,7 @@
 # README
 
+# old readme 
+
 # packages needed on the image (ubuntu)
 
 sudo apt install imagemagick dcraw libvips42  libpq-dev libexif-dev libimage-exiftool-perl
@@ -18,7 +20,6 @@ This was the other default for raw:
 
 https://stackoverflow.com/questions/52322701/imagemagick-raw-file-identify-convert-no-such-file-or-directory-tmp-file
 
-
 # on nvidia;
 
 first try;
@@ -30,3 +31,15 @@ https://medium.com/@ageitgey/build-a-hardware-based-face-recognition-system-for-
 dlib issues, basically downlad latest 19.22
 https://forums.developer.nvidia.com/t/issues-with-dlib-library/72600/16
 https://forums.developer.nvidia.com/t/how-to-build-dlib-in-jetson-nano-in-deepstream-l4t-container/144536/8
+
+## Docker
+
+### Production
+
+- Run `docker build . -t kondo -f Dockerfile.production` for a production ready image
+
+### Development
+
+- Run `docker-compose build` everytime there is a Gemfile or yarn.lock change.
+- Run `docker-compose up` to start environment
+- Run `docker exec kondo_kondo_1 bundle exec rails db:prepare` to create or migrate db

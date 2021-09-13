@@ -12,9 +12,7 @@ default: &default
   encoding: unicode
   # database: sample_postgres_development
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: docker
-  host: 127.0.0.1
+  url: <%= ENV.fetch('DATABASE_URL') { 'postgres://postgres:postgres@localhost' } %>
 
 development:
   <<: *default
