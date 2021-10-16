@@ -283,10 +283,11 @@
 <!-- end example album -->
   <div class="album py-5 bg-light">
     <div class="container">
-<!--
+      <p></p>
+      <% if notice or alert %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      -->
+      <% end %>
       <%= yield %>
     </div>
   </div>
