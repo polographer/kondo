@@ -1,28 +1,31 @@
 # README
 
-"Kondo" is a image catalog application, think about it like lightroom cc meet google photo. The basic need came when google photos "free" tier was removed. However this is not designed to be an application where you can register and upload your photos. The idea is that you are the owner of your catalog of pictures, you can upload your pictures and you can also share your pictures with selected people. 
+"Kondo" is an image catalog application, think about it like lightroom cc meet google photo. The basic need came when google photos "free" tier was removed. However, this is not designed to be an application where you can register and upload your photos. The idea is that you are the owner of your catalog of pictures, you can upload your pictures and you can also share your pictures with selected people. 
 
-Of course the name is inspired on Marie Kondo method, I found that I have a multi year unorganized catalog that I need to organize it and figure it out what brings joy to me. 
+Of course, the name is inspired by Marie Kondo method, I found that I have a multi-year unorganized catalog of pictures that I need to organize and figure out what brings joy to me. 
 
 The planned functionalities are ;
 - albums
-- auto auto album insertion
+- auto album insertion
 - catalog organizing (move files around)
 - dupes detection and cleanup
 - face detection
+- face recognition 
 - raw support
 - multi-sources support 
 - backup capabilities
 
-Due to the "face detection" I'm planning we will need something that can run face detection algorithms on a "decent" time, that means this software is mean to be run on nvidia gpu, including the Jetson. 
+Due to the "face detection" I'm planning we will need something that can run face detection algorithms at a "decent" time, which means this software is meant to be run on NVidia GPU, including the Jetson. 
 
-The intial approach was with docker, however, a lot of the open source software is not prepared to run this way, on the new approach we will abstract the face detection from the main rails app with Kafka, that means that this project will grow into a multi lenguage approach.
+The idea is going to be to send a message via a "queue" and it will be picked up by software capable of doing face detection. 
 
-This is meant to be the main repo, but as long as we can mantaina standard for face recognition it will be interchangable.
+The initial approach was with docker, however, a lot of the open-source software is not prepared to run this way (the jetson needs a lot of "band-aids" to enable face detection, on the new approach we will abstract the face detection from the main rails app with Kafka or RabbitMQ, which means that this project will grow into a multi-language approach. And the face detection app may be written on phyton (I know it's horrible, but the bindings are already there).
 
+I want to re-invent the wheel neither create a new way to interact with Nvidia CUDA, I only want the software to work so expect a lot of pieces running at the same time in different languages.
 
+This is meant to be the main repo, but as long as we can maintain a standard for face recognition it will be interchangeable.
 
-# old readme 
+# ------- old readme ------ will be moved to the wiki ...
 
 # packages needed on the image (ubuntu)
 
