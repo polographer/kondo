@@ -1,5 +1,27 @@
 # README
 
+"Kondo" is a image catalog application, think about it like lightroom cc meet google photo. The basic need came when google photos "free" tier was removed. However this is not designed to be an application where you can register and upload your photos. The idea is that you are the owner of your catalog of pictures, you can upload your pictures and you can also share your pictures with selected people. 
+
+Of course the name is inspired on Marie Kondo method, I found that I have a multi year unorganized catalog that I need to organize it and figure it out what brings joy to me. 
+
+The planned functionalities are ;
+- albums
+- auto auto album insertion
+- catalog organizing (move files around)
+- dupes detection and cleanup
+- face detection
+- raw support
+- multi-sources support 
+- backup capabilities
+
+Due to the "face detection" I'm planning we will need something that can run face detection algorithms on a "decent" time, that means this software is mean to be run on nvidia gpu, including the Jetson. 
+
+The intial approach was with docker, however, a lot of the open source software is not prepared to run this way, on the new approach we will abstract the face detection from the main rails app with Kafka, that means that this project will grow into a multi lenguage approach.
+
+This is meant to be the main repo, but as long as we can mantaina standard for face recognition it will be interchangable.
+
+
+
 # old readme 
 
 # packages needed on the image (ubuntu)

@@ -5,12 +5,12 @@ WORKDIR /usr/src/app
 ENV RAILS_ENV development
 ENV NODE_ENV development
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y build-essential curl git imagemagick dcraw libvips42 libpq-dev --no-install-recommends && apt-get clean
+RUN apt-get update && apt-get upgrade -y && apt-get install -y build-essential python curl git imagemagick dcraw libvips42 libpq-dev  --no-install-recommends && apt-get clean
 RUN echo '<delegate decode="dng:decode" command="&quot;dcraw&quot; -c &quot;%i&quot; &gt; &quot;%o&quot;" />' >> '/etc/ImageMagick-6/delegates.xml'
 
 ENV NODE_VERSION=14.17.3
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y build-essential curl git imagemagick dcraw libvips42 libpq-dev --no-install-recommends && apt-get clean
+RUN apt-get update && apt-get upgrade -y && apt-get install -y build-essential python curl git imagemagick dcraw libvips42 libpq-dev --no-install-recommends && apt-get clean
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
     amd64) ARCH='x64';; \
@@ -42,7 +42,10 @@ RUN curl -fsSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v
   && yarn --version
 
 COPY Gemfile Gemfile.lock /usr/src/app/
-RUN bundle config set deployment 'true' && bundle install
+#RUN bundle config set deployment 'true' && bundle install
+RUN bundle config set deployment 'true' 
+# && bundle install
+RUN bundle install
 COPY package.json yarn.lock /usr/src/app/
 RUN yarn install --frozen-lockfile
 COPY Gemfile Gemfile.lock /usr/src/app/
