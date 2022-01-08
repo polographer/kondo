@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :people
   resources :albums
   devise_for :users
   get 'welcome/hello'
@@ -9,9 +8,11 @@ Rails.application.routes.draw do
   get 'welcome/home'
 
   get '/pictures/missing_thumbnails' => 'pictures#thumbnails' , :as =>"missing_thumbs"
+  get '/people/:id/matcher' => 'people#matcher' , :as =>"matcher"
 
   resources :pictures
-  
+  resources :people
+
   #get '/patients/:id', to: 'patients#show'
 
   #get '/paths/scan/:id', to "paths#scan"

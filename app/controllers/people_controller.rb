@@ -1,5 +1,12 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+
+  before_action :set_person, only: %i[ show edit update destroy matcher ]
+
+  def matcher
+    @columns = 10
+    @pictures = Picture.all
+  end
 
   # GET /people or /people.json
   def index
