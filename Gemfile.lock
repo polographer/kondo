@@ -222,6 +222,7 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  armv7l-linux-eabihf
   x86_64-linux
 
 DEPENDENCIES

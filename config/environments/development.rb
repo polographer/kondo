@@ -79,4 +79,5 @@ Rails.application.configure do
 
   #vscode hacks
   config.hosts << "elponejerio.asuscomm.com"
+  config.hosts << "penpen.local"
 end
