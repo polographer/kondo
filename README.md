@@ -21,7 +21,7 @@ The idea is going to be to send a message via a "queue" and it will be picked up
 
 The initial approach was with docker, however, a lot of the open-source software is not prepared to run this way (the jetson needs a lot of "band-aids" to enable face detection, on the new approach we will abstract the face detection from the main rails app with Kafka or RabbitMQ, which means that this project will grow into a multi-language approach. And the face detection app may be written on phyton (I know it's horrible, but the bindings are already there).
 
-I want to re-invent the wheel neither create a new way to interact with Nvidia CUDA, I only want the software to work so expect a lot of pieces running at the same time in different languages.
+I don't want to re-invent the wheel neither create a new way to interact with Nvidia CUDA, I only want the software to work so expect a lot of pieces running at the same time in different languages.
 
 This is meant to be the main repo, but as long as we can maintain a standard for face recognition it will be interchangeable.
 
