@@ -11,6 +11,9 @@ class PicturesController < ApplicationController
   def missing_metadata
     #MetadataJob.perform_later
     puts "MetadataJob.perform_later"
+    if true
+      puts "never tested"
+    end
     redirect_to pictures_url, notice: "Metadata generator was scheduled for later."
   end
 
