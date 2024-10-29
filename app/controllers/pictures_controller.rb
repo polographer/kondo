@@ -6,7 +6,12 @@ class PicturesController < ApplicationController
   def missing_thumbnails
     SpiritJob.perform_later
     redirect_to pictures_url, notice: "Thumb generator was scheduled for later." 
+  end
 
+  def missing_metadata
+    #MetadataJob.perform_later
+    puts "MetadataJob.perform_later"
+    redirect_to pictures_url, notice: "Metadata generator was scheduled for later."
   end
 
   # GET /pictures or /pictures.json
