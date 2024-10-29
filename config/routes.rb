@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'welcome/home'
 
   get '/pictures/missing_thumbnails' => 'pictures#thumbnails' , :as =>"missing_thumbs"
+  get '/pictures/missing_metadata' => 'pictures#metadata' , :as =>"missing_metadata"
   get '/people/:id/matcher' => 'people#matcher' , :as =>"matcher"
 
   resources :pictures
