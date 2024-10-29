@@ -28,12 +28,27 @@ jobs:
         key: kondo-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           kondo-${{ hashFiles('**/Gemfile.lock') }}
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '14'
+    - name: Restore Node Modules
+      id: npm-cache
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node_modules-v14-${{ hashFiles('yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-node_modules-v14-${{ hashFiles('yarn.lock') }}
+    - name: npm install
+      if: steps.npm-cache.outputs.cache-hit != 'true'
+      run: npm install
     - name: Build and test with Rake
       env:
         RAILS_ENV: test
       run: |
         # other pre-requisite setup steps...
         gem install bundler
+        NODE_ENV=test RAILS_ENV=test ./bin/webpack
         bundle install --jobs 4 --retry 3
         bundle exec rake db:create db:migrate
         bundle exec rake test
