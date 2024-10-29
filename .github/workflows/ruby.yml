@@ -53,6 +53,7 @@ jobs:
         NODE_ENV=test RAILS_ENV=test ./bin/webpack
         bundle exec rake db:create db:migrate
         bundle exec rake test
+        ls -lha coverage/lcov/
         ruby -e "$(curl -s https://undercover-ci.com/uploader.rb)" -- \
           --repo ${{ github.repository }} \
           --commit ${{ github.event.pull_request.head.sha || github.sha }} \
