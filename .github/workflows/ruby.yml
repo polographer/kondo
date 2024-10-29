@@ -21,6 +21,13 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.0.1
+    - name: restore Project Gems
+      uses: actions/cache@v4
+      with:
+        path: vendor/bundle
+        key: kondo-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          kondo-${{ hashFiles('**/Gemfile.lock') }}
     - name: Build and test with Rake
       env:
         RAILS_ENV: test
@@ -28,6 +35,7 @@ jobs:
         # other pre-requisite setup steps...
         gem install bundler
         bundle install --jobs 4 --retry 3
+        bundle exec rake db:create db:migrate
         bundle exec rake test
         ruby -e "$(curl -s https://undercover-ci.com/uploader.rb)" -- \
           --repo ${{ github.repository }} \
