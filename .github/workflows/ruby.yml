@@ -1,5 +1,5 @@
 name: Rails Unit Tests
-on: [push, pull_request]
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -48,8 +48,8 @@ jobs:
       run: |
         # other pre-requisite setup steps...
         gem install bundler
-        NODE_ENV=test RAILS_ENV=test ./bin/webpack
         bundle install --jobs 4 --retry 3
+        NODE_ENV=test RAILS_ENV=test ./bin/webpack
         bundle exec rake db:create db:migrate
         bundle exec rake test
         ruby -e "$(curl -s https://undercover-ci.com/uploader.rb)" -- \
